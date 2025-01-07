@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         home: const Scaffold(
           body: Center(
-            child: Text("بسم الله الرحمن الرحيم"),
+            child: Text("hallo"),
           ),
         ),
       ),
