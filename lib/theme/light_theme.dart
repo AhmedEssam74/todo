@@ -15,6 +15,8 @@ class LightTheme extends BaseTheme {
   @override
   ThemeData get themeData => ThemeData(
         primaryColor: primaryColor,
+        cardColor: backgroundColor ,
+        hintColor: textColor,
         appBarTheme: AppBarTheme(
           centerTitle: true,
           backgroundColor: backgroundColor,

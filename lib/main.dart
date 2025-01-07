@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:todo/authentication/log_in.dart';
 import 'package:todo/screens/introduction_screen.dart';
+import 'package:todo/screens/onBoarding/on_boarding_screen.dart';
 import 'package:todo/theme/dark_theme.dart';
 import 'package:todo/theme/light_theme.dart';
 import 'package:todo/theme/my_theme.dart';
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
         initialRoute: IntroductionScreen.routeName,
         routes: {
           IntroductionScreen.routeName: (context) => const IntroductionScreen(),
+          OnBoardingScreen.routeName: (context) =>  OnBoardingScreen(),
+          LogIn.routeName: (context) => const LogIn(),
           // Add more routes as needed
         },
       ),

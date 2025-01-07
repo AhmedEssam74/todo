@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:todo/main.dart';
+import 'package:todo/screens/onBoarding/on_boarding_screen.dart';
 import 'package:todo/widgets/header_brand.dart';
 import 'package:todo/widgets/intro_screen.dart';
 import 'package:toggle_switch/toggle_switch.dart';
@@ -80,11 +81,11 @@ class IntroductionScreen extends StatelessWidget {
                   onToggle: (index) {
                     if (index == 0) {
                       context.setLocale(
-                        Locale('en'),
+                        const Locale('en'),
                       );
                     } else {
                       context.setLocale(
-                        Locale('ar'),
+                        const Locale('ar'),
                       );
                     }
                     print('switched to: $index');
@@ -93,7 +94,7 @@ class IntroductionScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 16,
+              height: 28,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,7 +143,9 @@ class IntroductionScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, OnBoardingScreen.routeName);
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
