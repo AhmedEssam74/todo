@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+abstract class BaseTheme {
+  Color get primaryColor;
 
-class MyTheme {
-  static ThemeData lightTheme = ThemeData();
-  static ThemeData darkTheme = ThemeData();
+  Color get backgroundColor;
+
+  Color get textColor;
+
+  ThemeData get themeData;
 }
+
