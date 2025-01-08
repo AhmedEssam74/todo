@@ -1,18 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:provider/provider.dart';
-import 'package:todo/main.dart';
 import 'package:todo/screens/onBoarding/on_boarding_screen.dart';
 import 'package:todo/widgets/elevated_btn.dart';
 import 'package:todo/widgets/header_brand.dart';
 import 'package:todo/widgets/intro_screen.dart';
 import 'package:todo/widgets/theme_btn.dart';
 import 'package:todo/widgets/translate_btn.dart';
-import 'package:toggle_switch/toggle_switch.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../Providers/my_provider.dart';
+
 
 class IntroductionScreen extends StatelessWidget {
   static const String routeName = "IntroductionScreen";
