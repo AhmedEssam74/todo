@@ -14,43 +14,48 @@ class DarkTheme extends BaseTheme {
 
   @override
   ThemeData get themeData => ThemeData(
-    primaryColor: primaryColor,
-    cardColor: backgroundColor ,
-    hintColor: textColor,
-    appBarTheme: AppBarTheme(
-      centerTitle: true,
-      backgroundColor: backgroundColor,
-    ),
-    scaffoldBackgroundColor: backgroundColor,
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      showSelectedLabels: true,
-      selectedItemColor: Colors.white,
-      backgroundColor: backgroundColor,
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: primaryColor,
-        shape:  RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+        primaryColor: primaryColor,
+        cardColor: backgroundColor,
+        hintColor: textColor,
+        focusColor: primaryColor,
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          backgroundColor: backgroundColor,
         ),
-      ),
-    ),
-    textTheme: TextTheme(
-      titleSmall: GoogleFonts.inter(
-        fontSize: 16.0,
-        fontWeight: FontWeight.w500,
-        color: textColor,
-      ),
-      titleMedium: GoogleFonts.inter(
-        fontSize: 20.0,
-        fontWeight: FontWeight.w700,
-        color: primaryColor,
-      ),titleLarge: GoogleFonts.inter(
-      fontSize: 30.0,
-      fontWeight: FontWeight.w700,
-      color: primaryColor,
-    ),
-    ),
-  );
-
+        scaffoldBackgroundColor: backgroundColor,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          showSelectedLabels: true,
+          selectedItemColor: Colors.white,
+          backgroundColor: backgroundColor,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+        ),
+        textTheme: TextTheme(
+          titleSmall: GoogleFonts.inter(
+            fontSize: 16.0,
+            fontWeight: FontWeight.w500,
+            color: textColor,
+          ),
+          titleMedium: GoogleFonts.inter(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w700,
+            color: primaryColor,
+          ),
+          titleLarge: GoogleFonts.inter(
+            fontSize: 30.0,
+            fontWeight: FontWeight.w700,
+            color: primaryColor,
+          ),
+          bodyMedium: GoogleFonts.inter(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w500,
+            color: primaryColor,
+          ),),
+      );
 }

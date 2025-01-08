@@ -1,11 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:todo/authentication/log_in.dart';
+import 'package:todo/screens/authentication/log_in.dart';
 import 'package:todo/widgets/header_brand.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   static const String routeName = "OnBoardingScreen";
+
   const OnBoardingScreen({super.key});
 
   Widget _buildImage(String assetName,
@@ -55,7 +56,10 @@ class OnBoardingScreen extends StatelessWidget {
         ),
       ),
       onDone: () {
-        Navigator.pushNamed(context, LogIn.routeName);
+        Navigator.pushReplacementNamed(
+          context,
+          LogIn.routeName,
+        );
       },
       //Next Btn
       showNextButton: true,
@@ -116,22 +120,21 @@ class OnBoardingScreen extends StatelessWidget {
         // Page1
         PageViewModel(
           title: "onboarding_tittle1".tr(),
-          body:
-              "onboarding_text1".tr(),
+          body: "onboarding_text1".tr(),
           image: _buildImage('intro_1.png'),
           decoration: pageDecoration,
         ),
         // Page2
         PageViewModel(
           title: "onboarding_tittle2".tr(),
-          body:"onboarding_text2".tr(),
+          body: "onboarding_text2".tr(),
           image: _buildImage('intro_2.png'),
           decoration: pageDecoration,
         ),
         // Page3
         PageViewModel(
           title: "onboarding_tittle3".tr(),
-          body:"onboarding_text3".tr(),
+          body: "onboarding_text3".tr(),
           image: _buildImage('intro_3.png'),
           decoration: pageDecoration,
         ),
