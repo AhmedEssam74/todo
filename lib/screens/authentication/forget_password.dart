@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:todo/screens/home_screen.dart';
+import 'package:todo/screens/Home/home_screen.dart';
 import 'package:todo/widgets/elevated_btn.dart';
 import 'package:todo/widgets/login_btn.dart';
 

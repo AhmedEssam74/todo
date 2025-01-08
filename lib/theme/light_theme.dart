@@ -15,12 +15,12 @@ class LightTheme extends BaseTheme {
   @override
   ThemeData get themeData => ThemeData(
         primaryColor: primaryColor,
-        cardColor: backgroundColor ,
+        cardColor: backgroundColor,
         hintColor: textColor,
         focusColor: const Color(0xff7B7B7B),
         canvasColor: const Color(0xff7B7B7B),
         appBarTheme: AppBarTheme(
-          titleTextStyle:GoogleFonts.inter(
+          titleTextStyle: GoogleFonts.inter(
             fontSize: 24.0,
             fontWeight: FontWeight.w400,
             color: const Color(0xff101127),
@@ -31,16 +31,32 @@ class LightTheme extends BaseTheme {
         scaffoldBackgroundColor: backgroundColor,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           showSelectedLabels: true,
+          showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
           backgroundColor: primaryColor,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: primaryColor,
-            shape:  RoundedRectangleBorder(
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
           ),
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: primaryColor,
+          elevation: 0,
+          iconSize: 40,
+          shape: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: const BorderSide(
+              color:  Color(0xffF2FEFF),
+              width: 3,
+            ),
+          ),
+
         ),
         textTheme: TextTheme(
           titleSmall: GoogleFonts.inter(
@@ -52,7 +68,8 @@ class LightTheme extends BaseTheme {
             fontSize: 20.0,
             fontWeight: FontWeight.w700,
             color: primaryColor,
-          ),titleLarge: GoogleFonts.inter(
+          ),
+          titleLarge: GoogleFonts.inter(
             fontSize: 30.0,
             fontWeight: FontWeight.w700,
             color: primaryColor,

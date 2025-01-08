@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo/screens/authentication/forget_password.dart';
 import 'package:todo/screens/authentication/register.dart';
-import 'package:todo/screens/home_screen.dart';
+import 'package:todo/screens/Home/home_screen.dart';
 import 'package:todo/widgets/elevated_btn.dart';
 import 'package:todo/widgets/login_btn.dart';
 
