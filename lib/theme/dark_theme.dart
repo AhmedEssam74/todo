@@ -25,6 +25,9 @@ class DarkTheme extends BaseTheme {
         scaffoldBackgroundColor: backgroundColor,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           showSelectedLabels: true,
+          showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.white,
           selectedItemColor: Colors.white,
           backgroundColor: backgroundColor,
         ),
@@ -33,6 +36,18 @@ class DarkTheme extends BaseTheme {
             backgroundColor: primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor:backgroundColor,
+          elevation: 0,
+          iconSize: 40,
+          shape: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: const BorderSide(
+              color: Colors.white,
+              width: 3,
             ),
           ),
         ),
@@ -56,6 +71,7 @@ class DarkTheme extends BaseTheme {
             fontSize: 20.0,
             fontWeight: FontWeight.w500,
             color: primaryColor,
-          ),),
+          ),
+        ),
       );
 }

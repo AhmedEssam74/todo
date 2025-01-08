@@ -23,5 +23,9 @@
   "name": "Name",
   "re_password": "Re Password",
   "already_have_account": "Already Have Account",
-  "reset_password": "Reset Password"
+  "reset_password": "Reset Password",
+  "home": "Home",
+  "map": "Map",
+  "love": "Love",
+  "profile": "Profile"
 }
