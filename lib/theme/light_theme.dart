@@ -17,7 +17,14 @@ class LightTheme extends BaseTheme {
         primaryColor: primaryColor,
         cardColor: backgroundColor ,
         hintColor: textColor,
+        focusColor: const Color(0xff7B7B7B),
+        canvasColor: const Color(0xff7B7B7B),
         appBarTheme: AppBarTheme(
+          titleTextStyle:GoogleFonts.inter(
+            fontSize: 24.0,
+            fontWeight: FontWeight.w400,
+            color: const Color(0xff101127),
+          ),
           centerTitle: true,
           backgroundColor: backgroundColor,
         ),
@@ -48,6 +55,11 @@ class LightTheme extends BaseTheme {
           ),titleLarge: GoogleFonts.inter(
             fontSize: 30.0,
             fontWeight: FontWeight.w700,
+            color: primaryColor,
+          ),
+          bodyMedium: GoogleFonts.inter(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w500,
             color: primaryColor,
           ),
         ),

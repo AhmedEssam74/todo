@@ -1,7 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:todo/authentication/log_in.dart';
+import 'package:todo/screens/authentication/forget_password.dart';
+import 'package:todo/screens/authentication/log_in.dart';
+import 'package:todo/screens/authentication/register.dart';
+import 'package:todo/screens/home_screen.dart';
 import 'package:todo/screens/introduction_screen.dart';
 import 'package:todo/screens/onBoarding/on_boarding_screen.dart';
 import 'package:todo/theme/dark_theme.dart';
@@ -46,6 +49,9 @@ class MyApp extends StatelessWidget {
           IntroductionScreen.routeName: (context) => const IntroductionScreen(),
           OnBoardingScreen.routeName: (context) =>  OnBoardingScreen(),
           LogIn.routeName: (context) => const LogIn(),
+          Register.routeName: (context) => const Register(),
+          ForgetPassword.routeName: (context) => const ForgetPassword(),
+          HomeScreen.routeName: (context) => const HomeScreen(),
           // Add more routes as needed
         },
       ),
