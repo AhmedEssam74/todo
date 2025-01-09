@@ -27,5 +27,12 @@
   "home": "الرئيسية",
   "map": "الخريطه",
   "love": "المفضلة",
-  "profile": "شخصي"
+  "profile": "شخصي",
+  "welcome_back" : "مرحبا بعودتك✨",
+  "profile_name": "أحمد عصام",
+  "city_country": "القاهرة , مصر",
+  "ar" : "EN",
+  "birthday_party": "هذه حفلة عيد ميلاد",
+  "date": "٢١",
+  "month": "نوفمبر"
 }

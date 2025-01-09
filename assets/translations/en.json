@@ -27,5 +27,13 @@
   "home": "Home",
   "map": "Map",
   "love": "Love",
-  "profile": "Profile"
+  "profile": "Profile",
+  "welcome_back" : "Welcome Back ✨",
+  "profile_name": "Ahmed Essam",
+  "city_country": "Cairo , Egypt",
+  "ar" : "AR",
+  "birthday_party": "This is a Birthday Party",
+  "date": "21",
+  "month": "Nov"
+
 }

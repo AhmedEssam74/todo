@@ -70,9 +70,14 @@ class LightTheme extends BaseTheme {
             color: primaryColor,
           ),
           titleLarge: GoogleFonts.inter(
-            fontSize: 30.0,
+            fontSize: 24.0,
             fontWeight: FontWeight.w700,
-            color: primaryColor,
+            color: Colors.white,
+          ),
+          bodySmall: GoogleFonts.inter(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
           ),
           bodyMedium: GoogleFonts.inter(
             fontSize: 20.0,

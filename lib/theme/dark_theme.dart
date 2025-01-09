@@ -18,6 +18,7 @@ class DarkTheme extends BaseTheme {
         cardColor: backgroundColor,
         hintColor: textColor,
         focusColor: primaryColor,
+        // canvasColor: const Color(0xff7B7B7B),
         appBarTheme: AppBarTheme(
           centerTitle: true,
           backgroundColor: backgroundColor,
@@ -40,7 +41,7 @@ class DarkTheme extends BaseTheme {
           ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor:backgroundColor,
+          backgroundColor: backgroundColor,
           elevation: 0,
           iconSize: 40,
           shape: OutlineInputBorder(
@@ -63,9 +64,14 @@ class DarkTheme extends BaseTheme {
             color: primaryColor,
           ),
           titleLarge: GoogleFonts.inter(
-            fontSize: 30.0,
+            fontSize: 24.0,
             fontWeight: FontWeight.w700,
-            color: primaryColor,
+            color: Colors.white,
+          ),
+          bodySmall: GoogleFonts.inter(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
           ),
           bodyMedium: GoogleFonts.inter(
             fontSize: 20.0,
