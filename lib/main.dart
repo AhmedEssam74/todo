@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/Providers/my_provider.dart';
+import 'package:todo/screens/Home/create_event.dart';
 import 'package:todo/screens/Home/tabs/Home_Tab/home_tab.dart';
 import 'package:todo/screens/Home/tabs/love_tap.dart';
 import 'package:todo/screens/Home/tabs/map_tap.dart';
@@ -66,6 +67,7 @@ class MyApp extends StatelessWidget {
           MapTap.routeName: (context) => const MapTap(),
           LoveTap.routeName: (context) => const LoveTap(),
           ProfileTap.routeName: (context) => const ProfileTap(),
+          CreateEvent.routeName: (context) => const CreateEvent(),
           // Add more routes as needed
         },
       ),

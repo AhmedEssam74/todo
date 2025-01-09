@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:todo/screens/Home/create_event.dart';
 import 'package:todo/screens/Home/tabs/Home_Tab/home_tab.dart';
 import 'package:todo/screens/Home/tabs/love_tap.dart';
 import 'package:todo/screens/Home/tabs/map_tap.dart';
@@ -22,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, CreateEvent.routeName);
+        },
         child: const Icon(
           Icons.add,
           color: Colors.white,
