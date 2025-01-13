@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/Providers/my_provider.dart';
+import 'package:todo/firebase/firebase_maneger.dart';
 import 'package:todo/screens/Home/create_event.dart';
 import 'package:todo/screens/Home/tabs/Home_Tab/home_tab.dart';
 import 'package:todo/screens/Home/tabs/love_tap.dart';
@@ -17,10 +18,16 @@ import 'package:todo/screens/onBoarding/on_boarding_screen.dart';
 import 'package:todo/theme/dark_theme.dart';
 import 'package:todo/theme/light_theme.dart';
 import 'package:todo/theme/my_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseManager.addEvent();
   runApp(
     ChangeNotifierProvider(
       create: (context) => MyProvider(),
@@ -67,7 +74,7 @@ class MyApp extends StatelessWidget {
           MapTap.routeName: (context) => const MapTap(),
           LoveTap.routeName: (context) => const LoveTap(),
           ProfileTap.routeName: (context) => const ProfileTap(),
-          CreateEvent.routeName: (context) => const CreateEvent(),
+          CreateEvent.routeName: (context) =>  CreateEvent(),
           // Add more routes as needed
         },
       ),

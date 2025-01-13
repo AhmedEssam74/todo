@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 class CreateEventsProvider extends ChangeNotifier {
   List<String> eventsCategory = [
     "bookClub",
@@ -16,11 +15,55 @@ class CreateEventsProvider extends ChangeNotifier {
   ];
   int selectedCategory = 0;
 
-  changeCategory(index) {
+  void changeCategory(index) {
     selectedCategory = index;
     notifyListeners();
   }
 
+  // changeIconColor() {
+  //   bool changeColor = true;
+  //   changeColor =!changeColor;
+  //
+  //   List<Icon> icons =  [
+  //     Icon(
+  //       FontAwesomeIcons.bookOpen,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //     Icon(
+  //       FontAwesomeIcons.bicycle,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //     Icon(
+  //       FontAwesomeIcons.piggyBank,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //     Icon(
+  //       FontAwesomeIcons.database,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //     Icon(
+  //       FontAwesomeIcons.gamepad,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //     Icon(
+  //       FontAwesomeIcons.bowlFood,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //     Icon(
+  //       FontAwesomeIcons.expand,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //     Icon(
+  //       FontAwesomeIcons.upwork,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //     Icon(
+  //       FontAwesomeIcons.cakeCandles,
+  //       color: changeColor ? Colors.white : Colors.red,
+  //     ),
+  //   ];
+  //   notifyListeners();
+  // }
   List<Icon> icons = const [
     Icon(
       FontAwesomeIcons.bookOpen,

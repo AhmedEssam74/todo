@@ -34,5 +34,15 @@
   "ar" : "EN",
   "birthday_party": "هذه حفلة عيد ميلاد",
   "date": "٢١",
-  "month": "نوفمبر"
+  "month": "نوفمبر",
+  "create_event": "انشاء حدث",
+  "bookClub": "نادي الكتاب",
+  "sports": "الرياضة",
+  "holiday": "إجازة",
+  "metting": "اجتماع",
+  "gaming": "الألعاب",
+  "eating": "تناول الطعام",
+  "exhibition": "معرض",
+  "workshop": "ورشة عمل",
+  "birth_day": "عيد ميلاد"
 }

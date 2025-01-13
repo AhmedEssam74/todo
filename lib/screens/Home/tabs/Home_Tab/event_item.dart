@@ -35,13 +35,27 @@ class EventItem extends StatelessWidget {
                     "birthday_party".tr(),
                     style: Theme.of(context)
                         .textTheme
-                        .titleSmall!
-                        .copyWith(fontSize: 20),
+                        .bodyMedium!
+                        .copyWith(fontSize: 16),
                   ),
-                  Icon(
-                    FontAwesomeIcons.solidHeart,
-                    color: Theme.of(context).primaryColor,
-                  )
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.delete,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(width: 8.w),
+                      Icon(
+                        Icons.edit,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(width: 8.w),
+                      Icon(
+                        FontAwesomeIcons.solidHeart,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             )

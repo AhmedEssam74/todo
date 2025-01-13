@@ -4,6 +4,8 @@ class CreateEventItem extends StatelessWidget {
   String text;
   Icon icon;
 
+  // Color iconColor;
+
   bool isSelected;
 
   CreateEventItem({
@@ -11,13 +13,15 @@ class CreateEventItem extends StatelessWidget {
     required this.text,
     required this.isSelected,
     required this.icon,
+    // required this.iconColor,
   });
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
-      padding: const EdgeInsets.all(16),
-      // alignment: Alignment.center,
+      padding: const EdgeInsets.all(14),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
           color:
               isSelected ? Theme.of(context).primaryColor : Colors.transparent,
@@ -30,6 +34,10 @@ class CreateEventItem extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           icon,
+          // Icon(
+          //   Icons.add,
+          //   color: isSelected ? Colors.white : Colors.red,
+          // ),
           const SizedBox(
             width: 16,
           ),
