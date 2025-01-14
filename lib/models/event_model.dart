@@ -2,15 +2,19 @@ class EventModel {
   String id;
   String title;
   String description;
-  int data;
+  String category;
+  String location;
+  int date;
   bool isDone;
 
   EventModel({
-    required this.id,
+    this.id = "",
     required this.title,
     required this.description,
-    required this.data,
-    required this.isDone,
+    required this.category,
+    this.location = "",
+    required this.date,
+    this.isDone = false,
   });
 
   /// convert from map to json(model)
@@ -18,11 +22,13 @@ class EventModel {
   EventModel.fromJson(Map<String, dynamic> json)
       : this(
           // returned Event model
-          id: json['id'],
-          title: json['title'],
-          description: json['description'],
-          data: json['data'],
-          isDone: json['isDone'],
+          id: json['id']! as String,
+          title: json['title']! as String,
+          description: json['description']! as String,
+          category: json['category']! as String,
+          location: json['location']! as String,
+          date: json['date']! as int,
+          isDone: json['isDone']! as bool,
         );
 
   /// convert from json(model) to map
@@ -32,7 +38,9 @@ class EventModel {
       'id': id,
       'title': title,
       'description': description,
-      'data': data,
+      'category': category,
+      'location': location,
+      'date': date,
       'isDone': isDone,
     };
   }

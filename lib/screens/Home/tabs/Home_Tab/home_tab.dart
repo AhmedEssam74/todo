@@ -1,6 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:todo/Providers/create_event_provider.dart';
+import 'package:todo/firebase/firebase_maneger.dart';
+import 'package:todo/models/event_model.dart';
 import 'package:todo/screens/Home/tabs/Home_Tab/event_item.dart';
 
 class HomeTab extends StatelessWidget {
@@ -10,98 +15,174 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 174.h,
-        leading: const SizedBox(),
-        leadingWidth: 0,
-        backgroundColor: Theme.of(context).primaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
-        ),
-        title: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "welcome_back".tr(),
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                    Text(
-                      "profile_name".tr(),
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.white,
-                          size: 28,
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          "city_country".tr(),
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.sunny,
-                      color: Colors.white,
-                      size: 28,
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Text(
-                        "ar".tr(),
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 16.0, left: 16, right: 16),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.separated(
-                separatorBuilder: (context, index) => const SizedBox(
-                  height: 16,
-                ),
-                itemBuilder: (context, index) {
-                  return const EventItem();
-                },
-                itemCount: 10,
+    return ChangeNotifierProvider(
+        create: (context) => CreateEventsProvider(),
+        builder: (context, child) {
+          var provider = Provider.of<CreateEventsProvider>(context);
+          return Scaffold(
+            appBar: AppBar(
+              toolbarHeight: 174.h,
+              leading: const SizedBox(),
+              leadingWidth: 0,
+              backgroundColor: Theme.of(context).primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
               ),
-            )
-          ],
-        ),
-      ),
-    );
+              title: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "welcome_back".tr(),
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          Text(
+                            "profile_name".tr(),
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.location_on_outlined,
+                                color: Colors.white,
+                                size: 28,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                "city_country".tr(),
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.sunny,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(
+                              "ar".tr(),
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  SizedBox(
+                    height: 55,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      separatorBuilder: (context, index) => const SizedBox(
+                        width: 16,
+                      ),
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            provider.changeCategory(index);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(14),
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: provider.selectedCategory == index
+                                    ? Theme.of(context).cardColor
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.circular(32),
+                                border: Border.all(
+                                  color: provider.selectedCategory == index
+                                      ? Colors.transparent
+                                      : Colors.white,
+                                  width: 2,
+                                )),
+                            child: Row(
+                              children: [
+                                provider.icons[index],
+                                const SizedBox(
+                                  width: 16,
+                                ),
+                                Text(
+                                  provider.eventsCategory[index].tr(),
+                                  style: provider.selectedCategory == index
+                                      ? Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .copyWith(fontSize: 16)
+                                      : Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                        //   child: CreateEventItem(
+                        //     text: provider.eventsCategory[index].tr(),
+                        //     isSelected: provider.selectedCategory == index
+                        //         ? true
+                        //         : false,
+                        //     icon: provider.icons[index],
+                        //   ),
+                        // );
+                      },
+                      itemCount: provider.eventsCategory.length,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            body: StreamBuilder<QuerySnapshot<EventModel>>(
+              stream: FirebaseManager.getEvent(),
+              builder: (context, snapshot) {
+                return Padding(
+                  padding:
+                      const EdgeInsets.only(top: 16.0, left: 16, right: 16),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: ListView.separated(
+                          separatorBuilder: (context, index) => const SizedBox(
+                            height: 16,
+                          ),
+                          itemBuilder: (context, index) {
+                            return EventItem(
+                              model: snapshot.data!.docs[index].data(),
+                            );
+                          },
+                          itemCount: snapshot.data?.docs.length ?? 0,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
+          );
+        });
   }
 }

@@ -9,6 +9,7 @@ import 'package:todo/screens/Home/tabs/Home_Tab/home_tab.dart';
 import 'package:todo/screens/Home/tabs/love_tap.dart';
 import 'package:todo/screens/Home/tabs/map_tap.dart';
 import 'package:todo/screens/Home/tabs/profile_tap.dart';
+import 'package:todo/screens/Home/update_event.dart';
 import 'package:todo/screens/authentication/forget_password.dart';
 import 'package:todo/screens/authentication/log_in.dart';
 import 'package:todo/screens/authentication/register.dart';
@@ -27,7 +28,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseManager.addEvent();
   runApp(
     ChangeNotifierProvider(
       create: (context) => MyProvider(),
@@ -75,6 +75,7 @@ class MyApp extends StatelessWidget {
           LoveTap.routeName: (context) => const LoveTap(),
           ProfileTap.routeName: (context) => const ProfileTap(),
           CreateEvent.routeName: (context) =>  CreateEvent(),
+          UpdateEvent.routeName: (context) =>  UpdateEvent(),
           // Add more routes as needed
         },
       ),

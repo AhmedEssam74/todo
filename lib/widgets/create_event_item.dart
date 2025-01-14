@@ -18,7 +18,6 @@ class CreateEventItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       padding: const EdgeInsets.all(14),
       alignment: Alignment.center,
@@ -31,7 +30,6 @@ class CreateEventItem extends StatelessWidget {
             width: 2,
           )),
       child: Row(
-        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           icon,
           // Icon(

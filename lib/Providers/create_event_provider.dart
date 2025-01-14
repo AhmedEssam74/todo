@@ -15,8 +15,25 @@ class CreateEventsProvider extends ChangeNotifier {
   ];
   int selectedCategory = 0;
 
+  String get selectedCategoryName => eventsCategory[selectedCategory];
+
   void changeCategory(index) {
     selectedCategory = index;
+    notifyListeners();
+  }
+
+  /// for Selected Date in create event
+  DateTime selectedDate = DateTime.now();
+
+  void changeDate(DateTime date) {
+    selectedDate = date;
+    notifyListeners();
+  }
+
+  ThemeMode themeMode = ThemeMode.light;
+
+  changeThemeMode(ThemeMode mode) {
+    themeMode = mode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
 

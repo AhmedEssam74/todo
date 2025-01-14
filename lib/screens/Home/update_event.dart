@@ -8,15 +8,16 @@ import 'package:todo/models/event_model.dart';
 import 'package:todo/screens/Home/home_screen.dart';
 import 'package:todo/widgets/create_event_item.dart';
 
-class CreateEvent extends StatelessWidget {
-  static const String routeName = "createEvent";
+class UpdateEvent extends StatelessWidget {
+  static const String routeName = "updateEvent";
   final TextEditingController titleController = TextEditingController();
   final TextEditingController decController = TextEditingController();
 
-  CreateEvent({super.key});
+  UpdateEvent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final arguments = ModalRoute.of(context)?.settings.arguments as EventModel;
     return ChangeNotifierProvider(
       create: (context) => CreateEventsProvider(),
       builder: (context, child) {
@@ -26,7 +27,7 @@ class CreateEvent extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              'create_event'.tr(),
+              'update_event'.tr(),
               style: Theme.of(context).textTheme.titleMedium,
             ),
             iconTheme: IconThemeData(
@@ -42,7 +43,7 @@ class CreateEvent extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: Image.asset(
-                      "assets/images/${provider.eventsCategory[provider.selectedCategory]}.png",
+                      "assets/images/${arguments.category}.png",
                       height: 203.h,
                     ),
                   ),
@@ -63,7 +64,8 @@ class CreateEvent extends StatelessWidget {
                           },
                           child: CreateEventItem(
                             text: provider.eventsCategory[index].tr(),
-                            isSelected: provider.selectedCategory == index
+                            isSelected: provider.eventsCategory[index] ==
+                                    arguments.category
                                 ? true
                                 : false,
                             icon: provider.icons[index],
@@ -88,7 +90,7 @@ class CreateEvent extends StatelessWidget {
                     controller: titleController,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(vertical: 16.h),
-                      labelText: "event_title".tr(),
+                      labelText: arguments.title.tr(),
                       labelStyle:
                           Theme.of(context).textTheme.titleSmall!.copyWith(
                                 color: Theme.of(context).canvasColor,
@@ -137,7 +139,7 @@ class CreateEvent extends StatelessWidget {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(
                           vertical: 16.h, horizontal: 16.h),
-                      labelText: "event_description".tr(),
+                      labelText: arguments.description.tr(),
                       labelStyle:
                           Theme.of(context).textTheme.titleSmall!.copyWith(
                                 color: Theme.of(context).canvasColor,
@@ -205,7 +207,7 @@ class CreateEvent extends StatelessWidget {
                           }
                         },
                         child: Text(
-                          provider.selectedDate.toString().substring(0, 10),
+                          arguments.date.toString().substring(0, 10),
                         ),
                       ),
                     ],
@@ -262,7 +264,20 @@ class CreateEvent extends StatelessWidget {
                   SizedBox(
                     width: double.infinity.w,
                     child: ElevatedButton(
-                      onPressed: () async {
+                      onPressed: () async{
+                        // if (titleController.text.isEmpty ||
+                        //     decController.text.isEmpty) {
+                        //   print('Error: Title or description is empty');
+                        //   return;
+                        // }
+                        // if (provider.selectedCategoryName == null ||
+                        //     provider.selectedCategoryName.isEmpty) {
+                        //   print('Error: Category is empty');
+                        // }
+                        // if (provider.selectedDate == null) {
+                        //   print('Error: Date is null');
+                        //   return;
+                        // }
                         showDialog(
                             context: context,
                             builder: (context) {
@@ -272,13 +287,15 @@ class CreateEvent extends StatelessWidget {
                                 ),
                               );
                             });
+                        await Future.delayed(const Duration(seconds: 2));
                         EventModel model = EventModel(
                             title: titleController.text,
                             description: decController.text,
                             category: provider.selectedCategoryName,
                             date: provider.selectedDate.millisecondsSinceEpoch);
-                        await Future.delayed(const Duration(seconds: 2));
-                        FirebaseManager.addEvent(model).then((value) {
+                        // print(arguments.id);
+                        FirebaseManager.updateEvent(model, arguments.id)
+                            .then((value) {
                           Navigator.pop(context, HomeScreen.routeName);
                           Navigator.pop(context, HomeScreen.routeName);
                         });
@@ -286,7 +303,7 @@ class CreateEvent extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          "add_event".tr(),
+                          "update_event".tr(),
                           style:
                               Theme.of(context).textTheme.bodyMedium?.copyWith(
                                     color: Colors.white,
