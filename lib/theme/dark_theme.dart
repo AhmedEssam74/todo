@@ -18,7 +18,7 @@ class DarkTheme extends BaseTheme {
         cardColor: backgroundColor,
         hintColor: textColor,
         focusColor: primaryColor,
-        // canvasColor: const Color(0xff7B7B7B),
+        canvasColor: const Color(0xff7B7B7B),
         appBarTheme: AppBarTheme(
           centerTitle: true,
           backgroundColor: backgroundColor,

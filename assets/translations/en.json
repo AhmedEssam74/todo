@@ -34,6 +34,24 @@
   "ar" : "AR",
   "birthday_party": "This is a Birthday Party",
   "date": "21",
-  "month": "Nov"
-
+  "month": "Nov",
+  "create_event": "Create Event",
+  "bookClub":"bookClub",
+  "sports":"sports",
+  "holiday":"holiday",
+  "metting":"metting",
+  "gaming":"gaming",
+  "eating":"eating",
+  "exhibition":"exhibition",
+  "workshop":"workshop",
+  "birth_day":"birth_day",
+  "title": "Title",
+  "event_title": "Event Title",
+  "description": "Description",
+  "event_description": "Event Description",
+  "event_date": "Event Date",
+  "location": "Location",
+  "choose_event_location": "Choose Event Location",
+  "add_event": "Add Event",
+  "update_event": "Update Event"
 }
