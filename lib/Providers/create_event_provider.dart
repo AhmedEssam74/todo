@@ -13,9 +13,22 @@ class CreateEventsProvider extends ChangeNotifier {
     "workshop",
     "birth_day",
   ];
+  List<String> homeEventsCategory = [
+    "All",
+    "bookClub",
+    "sports",
+    "holiday",
+    "metting",
+    "gaming",
+    "eating",
+    "exhibition",
+    "workshop",
+    "birth_day",
+  ];
   int selectedCategory = 0;
 
   String get selectedCategoryName => eventsCategory[selectedCategory];
+  // String get selectedHomeCategoryName => eventsCategory[selectedCategory];
 
   void changeCategory(index) {
     selectedCategory = index;
@@ -82,6 +95,48 @@ class CreateEventsProvider extends ChangeNotifier {
   //   notifyListeners();
   // }
   List<Icon> icons = const [
+    Icon(
+      FontAwesomeIcons.bookOpen,
+      color: Colors.white,
+    ),
+    Icon(
+      FontAwesomeIcons.bicycle,
+      color: Colors.white,
+    ),
+    Icon(
+      FontAwesomeIcons.piggyBank,
+      color: Colors.white,
+    ),
+    Icon(
+      FontAwesomeIcons.database,
+      color: Colors.white,
+    ),
+    Icon(
+      FontAwesomeIcons.gamepad,
+      color: Colors.white,
+    ),
+    Icon(
+      FontAwesomeIcons.bowlFood,
+      color: Colors.white,
+    ),
+    Icon(
+      FontAwesomeIcons.expand,
+      color: Colors.white,
+    ),
+    Icon(
+      FontAwesomeIcons.upwork,
+      color: Colors.white,
+    ),
+    Icon(
+      FontAwesomeIcons.cakeCandles,
+      color: Colors.white,
+    ),
+  ];
+  List<Icon> homeIcons = const [
+    Icon(
+      FontAwesomeIcons.bookOpen,
+      color: Colors.white,
+    ),
     Icon(
       FontAwesomeIcons.bookOpen,
       color: Colors.white,

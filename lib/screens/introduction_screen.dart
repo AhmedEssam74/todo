@@ -7,7 +7,6 @@ import 'package:todo/widgets/intro_screen.dart';
 import 'package:todo/widgets/theme_btn.dart';
 import 'package:todo/widgets/translate_btn.dart';
 
-
 class IntroductionScreen extends StatelessWidget {
   static const String routeName = "IntroductionScreen";
 
@@ -80,7 +79,9 @@ class IntroductionScreen extends StatelessWidget {
             ),
             ElevatedBtn(
               lable: "let’s_start".tr(),
-              routeName: OnBoardingScreen.routeName,
+              onPress: () {
+                Navigator.pushNamed(context, OnBoardingScreen.routeName);
+              },
             )
           ],
         ),

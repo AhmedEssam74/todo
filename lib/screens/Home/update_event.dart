@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/Providers/create_event_provider.dart';
@@ -264,7 +265,7 @@ class UpdateEvent extends StatelessWidget {
                   SizedBox(
                     width: double.infinity.w,
                     child: ElevatedButton(
-                      onPressed: () async{
+                      onPressed: () async {
                         // if (titleController.text.isEmpty ||
                         //     decController.text.isEmpty) {
                         //   print('Error: Title or description is empty');
@@ -289,6 +290,7 @@ class UpdateEvent extends StatelessWidget {
                             });
                         await Future.delayed(const Duration(seconds: 2));
                         EventModel model = EventModel(
+                            userId: FirebaseAuth.instance.currentUser!.uid,
                             title: titleController.text,
                             description: decController.text,
                             category: provider.selectedCategoryName,

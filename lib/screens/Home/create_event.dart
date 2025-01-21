@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/Providers/create_event_provider.dart';
@@ -273,6 +274,7 @@ class CreateEvent extends StatelessWidget {
                               );
                             });
                         EventModel model = EventModel(
+                            userId: FirebaseAuth.instance.currentUser!.uid,
                             title: titleController.text,
                             description: decController.text,
                             category: provider.selectedCategoryName,
