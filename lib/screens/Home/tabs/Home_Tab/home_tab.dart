@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/Providers/userProvider.dart';
 import 'package:todo/Providers/create_event_provider.dart';
 import 'package:todo/firebase/firebase_maneger.dart';
 import 'package:todo/models/event_model.dart';
@@ -19,6 +20,7 @@ class HomeTab extends StatelessWidget {
         create: (context) => CreateEventsProvider(),
         builder: (context, child) {
           var provider = Provider.of<CreateEventsProvider>(context);
+          var userProvider = Provider.of<UserProvider>(context);
           return Scaffold(
             appBar: AppBar(
               toolbarHeight: 174.h,
@@ -41,7 +43,7 @@ class HomeTab extends StatelessWidget {
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           Text(
-                            "profile_name".tr(),
+                            "${userProvider.userModel?.name}",
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           const SizedBox(
@@ -65,29 +67,29 @@ class HomeTab extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.sunny,
-                            color: Colors.white,
-                            size: 28,
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Text(
-                              "ar".tr(),
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                          ),
-                        ],
-                      ),
+                      // Row(
+                      //   children: [
+                      //     const Icon(
+                      //       Icons.sunny,
+                      //       color: Colors.white,
+                      //       size: 28,
+                      //     ),
+                      //     const SizedBox(
+                      //       width: 8,
+                      //     ),
+                      //     Container(
+                      //       padding: const EdgeInsets.all(8),
+                      //       decoration: BoxDecoration(
+                      //         color: Colors.white,
+                      //         borderRadius: BorderRadius.circular(12),
+                      //       ),
+                      //       child: Text(
+                      //         "ar".tr(),
+                      //         style: Theme.of(context).textTheme.titleMedium,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                     ],
                   ),
                   SizedBox(
@@ -121,12 +123,18 @@ class HomeTab extends StatelessWidget {
                                 )),
                             child: Row(
                               children: [
-                                provider.icons[index],
-                                const SizedBox(
-                                  width: 16,
-                                ),
+                                index == 0
+                                    ? const SizedBox(
+                                        width: 0,
+                                      )
+                                    : provider.homeIcons[index],
+                                index == 0
+                                    ? const SizedBox()
+                                    : const SizedBox(
+                                        width: 16,
+                                      ),
                                 Text(
-                                  provider.eventsCategory[index].tr(),
+                                  provider.homeEventsCategory[index].tr(),
                                   style: provider.selectedCategory == index
                                       ? Theme.of(context)
                                           .textTheme
@@ -157,8 +165,19 @@ class HomeTab extends StatelessWidget {
               ),
             ),
             body: StreamBuilder<QuerySnapshot<EventModel>>(
-              stream: FirebaseManager.getEvent(),
+              stream: FirebaseManager.getEvent(
+                  provider.homeEventsCategory[provider.selectedCategory]),
               builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text(
+                      "something_went_wrong".tr(),
+                    ),
+                  );
+                }
                 return Padding(
                   padding:
                       const EdgeInsets.only(top: 16.0, left: 16, right: 16),

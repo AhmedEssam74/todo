@@ -80,9 +80,12 @@ class EventItem extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 16.w),
-                        Icon(
-                          FontAwesomeIcons.solidHeart,
-                          color: Theme.of(context).primaryColor,
+                        GestureDetector(
+                          onTap: (){},
+                          child: Icon(
+                            FontAwesomeIcons.solidHeart,
+                            color: Theme.of(context).primaryColor,
+                          ),
                         ),
                       ],
                     ),

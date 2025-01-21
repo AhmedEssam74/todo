@@ -47,11 +47,28 @@
   "birth_day":"birth_day",
   "title": "Title",
   "event_title": "Event Title",
+  "favorite_events": "Favorite Events",
   "description": "Description",
   "event_description": "Event Description",
   "event_date": "Event Date",
   "location": "Location",
   "choose_event_location": "Choose Event Location",
   "add_event": "Add Event",
-  "update_event": "Update Event"
+  "update_event": "Update Event",
+  "name_is_required": "Name is required",
+  "please_enter_your_email": "Please enter your email",
+  "please_enter_a_valid_email_address": "Please enter a valid email address",
+  "please_enter_your_password": "Please enter your Password",
+  "password_should_be_at_least_6_characters_long": "Password should be at least 6 characters long",
+  "rePassword_should_be_at_least_6_characters_long": "RePassword should be at least 6 characters long",
+  "Password_and_RePassword_should_match": "Password and RePassword should match",
+  "something_went_wrong": "Something Went Wrong",
+  "ok": "OK",
+  "the_account_already_exists_for_tha_email.": "The account already exists for that email.",
+  "the_password_provided_is_too_weak.": "The password provided is too weak.",
+  "no_user_found_for_that_email.": "No user found for that email.",
+  "email_is_not_verified_please_check_your_mail_and_try_again": "Email is not verified please check your mail and try again",
+  "email_or_password_is_not_valid": "Email or password is not valid"
+
+
 }

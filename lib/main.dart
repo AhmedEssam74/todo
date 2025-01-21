@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/Providers/my_provider.dart';
-import 'package:todo/firebase/firebase_maneger.dart';
+import 'package:todo/Providers/userProvider.dart';
 import 'package:todo/screens/Home/create_event.dart';
 import 'package:todo/screens/Home/tabs/Home_Tab/home_tab.dart';
 import 'package:todo/screens/Home/tabs/love_tap.dart';
@@ -29,8 +29,15 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => MyProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MyProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        ),
+      ],
       child: EasyLocalization(
         supportedLocales: const [Locale('en'), Locale('ar')],
         path: 'assets/translations',
@@ -47,6 +54,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
+    var authProvider = Provider.of<UserProvider>(context);
+
     ///object from parent class refer to child
     BaseTheme lightTheme = LightTheme();
     BaseTheme darkTheme = DarkTheme();
@@ -62,20 +71,22 @@ class MyApp extends StatelessWidget {
         theme: lightTheme.themeData,
         darkTheme: darkTheme.themeData,
         themeMode: provider.themeMode,
-        initialRoute: IntroductionScreen.routeName,
+        initialRoute: authProvider.currentUser != null
+            ? HomeScreen.routeName
+            : IntroductionScreen.routeName,
         routes: {
           IntroductionScreen.routeName: (context) => const IntroductionScreen(),
           OnBoardingScreen.routeName: (context) => const OnBoardingScreen(),
           LogIn.routeName: (context) => const LogIn(),
           Register.routeName: (context) => const Register(),
           ForgetPassword.routeName: (context) => const ForgetPassword(),
-          HomeScreen.routeName: (context) =>  const HomeScreen(),
+          HomeScreen.routeName: (context) => const HomeScreen(),
           HomeTab.routeName: (context) => const HomeTab(),
           MapTap.routeName: (context) => const MapTap(),
           LoveTap.routeName: (context) => const LoveTap(),
           ProfileTap.routeName: (context) => const ProfileTap(),
-          CreateEvent.routeName: (context) =>  CreateEvent(),
-          UpdateEvent.routeName: (context) =>  UpdateEvent(),
+          CreateEvent.routeName: (context) => CreateEvent(),
+          UpdateEvent.routeName: (context) => UpdateEvent(),
           // Add more routes as needed
         },
       ),

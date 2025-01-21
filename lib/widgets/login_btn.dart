@@ -3,29 +3,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginBtn extends StatelessWidget {
   late String tittle;
-  late Icon prefixIcon;
-  late Icon suffixIcon;
+  late Widget prefixIcon;
+  late Widget? suffixIcon;
   late bool show;
+  late Function(bool)? showPassword;
   late TextEditingController textEditingController;
+  FormFieldValidator<String> validator;
 
   LoginBtn({
     super.key,
     required this.tittle,
     required this.prefixIcon,
-    required this.suffixIcon,
+    this.suffixIcon,
     required this.show,
+    this.showPassword,
     required this.textEditingController,
+    required this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       obscureText: show,
       obscuringCharacter: '*',
       style: Theme.of(context).textTheme.titleSmall!.copyWith(
             color: Theme.of(context).focusColor,
           ),
-      controller:textEditingController ,
+      controller: textEditingController,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(vertical: 16.h),
         labelText: tittle,
@@ -58,16 +63,6 @@ class LoginBtn extends StatelessWidget {
             width: 2,
           ),
         ),
-        // validator: (value) {
-        //   if (value == null || value.isEmpty) {
-        //     return 'Please enter your email';
-        //   }
-        //   final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-        //   if (!emailRegex.hasMatch(value)) {
-        //     return 'Please enter a valid email address';
-        //   }
-        //   return null;
-        // },
       ),
     );
   }

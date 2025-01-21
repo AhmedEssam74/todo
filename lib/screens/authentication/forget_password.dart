@@ -44,12 +44,15 @@ class ForgetPassword extends StatelessWidget {
                   ),
                   tittle: "email".tr(),
                   textEditingController: TextEditingController(),
+                  validator: (v){},
                 ),
                 const SizedBox(
                   height: 24.0,
                 ),
                 ElevatedBtn(
-                  routeName: HomeScreen.routeName,
+                  onPress: (){
+                    Navigator.pushNamed(context, HomeScreen.routeName);
+                  },
                   lable: "reset_password".tr(),
                 ),
               ],
