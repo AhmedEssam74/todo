@@ -9,6 +9,8 @@ import 'package:todo/firebase/firebase_maneger.dart';
 import 'package:todo/models/event_model.dart';
 import 'package:todo/screens/Home/tabs/Home_Tab/event_item.dart';
 
+import 'category_list.dart';
+
 class HomeTab extends StatelessWidget {
   static const String routeName = "home_tap";
 
@@ -107,47 +109,52 @@ class HomeTab extends StatelessWidget {
                           onTap: () {
                             provider.changeCategory(index);
                           },
-                          child: Container(
-                            padding: const EdgeInsets.all(14),
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: provider.selectedCategory == index
-                                    ? Theme.of(context).cardColor
-                                    : Colors.transparent,
-                                borderRadius: BorderRadius.circular(32),
-                                border: Border.all(
-                                  color: provider.selectedCategory == index
-                                      ? Colors.transparent
-                                      : Colors.white,
-                                  width: 2,
-                                )),
-                            child: Row(
-                              children: [
-                                index == 0
-                                    ? const SizedBox(
-                                        width: 0,
-                                      )
-                                    : provider.homeIcons[index],
-                                index == 0
-                                    ? const SizedBox()
-                                    : const SizedBox(
-                                        width: 16,
-                                      ),
-                                Text(
-                                  provider.homeEventsCategory[index].tr(),
-                                  style: provider.selectedCategory == index
-                                      ? Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(fontSize: 16)
-                                      : Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(fontSize: 16),
-                                ),
-                              ],
-                            ),
+                          child: CategoryList(
+                            category: provider.homeEventsCategory[index],
+                            categoryIcon: provider.homeIcons[index],
+                            isSelected: provider.selectedCategory == index,
                           ),
+                          // child: Container(
+                          //   padding: const EdgeInsets.all(14),
+                          //   alignment: Alignment.center,
+                          //   decoration: BoxDecoration(
+                          //       color: provider.selectedCategory == index
+                          //           ? Theme.of(context).cardColor
+                          //           : Colors.transparent,
+                          //       borderRadius: BorderRadius.circular(32),
+                          //       border: Border.all(
+                          //         color: provider.selectedCategory == index
+                          //             ? Colors.transparent
+                          //             : Colors.white,
+                          //         width: 2,
+                          //       )),
+                          //   child: Row(
+                          //     children: [
+                          //       index == 0
+                          //           ? const SizedBox(
+                          //               width: 0,
+                          //             )
+                          //           : provider.homeIcons[index],
+                          //       index == 0
+                          //           ? const SizedBox()
+                          //           : const SizedBox(
+                          //               width: 16,
+                          //             ),
+                          //       Text(
+                          //         provider.homeEventsCategory[index].tr(),
+                          //         style: provider.selectedCategory == index
+                          //             ? Theme.of(context)
+                          //                 .textTheme
+                          //                 .bodyMedium!
+                          //                 .copyWith(fontSize: 16)
+                          //             : Theme.of(context)
+                          //                 .textTheme
+                          //                 .bodySmall!
+                          //                 .copyWith(fontSize: 16),
+                          //       ),
+                          //     ],
+                          //   ),
+                          // ),
                         );
                         //   child: CreateEventItem(
                         //     text: provider.eventsCategory[index].tr(),

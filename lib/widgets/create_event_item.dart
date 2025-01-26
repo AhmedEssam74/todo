@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CreateEventItem extends StatelessWidget {
-  String text;
-  Icon icon;
+  final String text;
+  final IconData? icon;
+  final bool isSelected;
 
-  // Color iconColor;
-
-  bool isSelected;
-
-  CreateEventItem({
+  const CreateEventItem({
     super.key,
     required this.text,
     required this.isSelected,
     required this.icon,
-    // required this.iconColor,
   });
 
   @override
@@ -31,11 +27,10 @@ class CreateEventItem extends StatelessWidget {
           )),
       child: Row(
         children: [
-          icon,
-          // Icon(
-          //   Icons.add,
-          //   color: isSelected ? Colors.white : Colors.red,
-          // ),
+          Icon(icon,
+              color: isSelected
+                  ? Theme.of(context).textTheme.bodySmall!.color
+                  : Theme.of(context).textTheme.bodyMedium!.color),
           const SizedBox(
             width: 16,
           ),

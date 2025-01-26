@@ -22,8 +22,6 @@ class CreateEvent extends StatelessWidget {
       create: (context) => CreateEventsProvider(),
       builder: (context, child) {
         var provider = Provider.of<CreateEventsProvider>(context);
-        ThemeMode mode = ThemeMode.system;
-        provider.changeThemeMode(mode);
         return Scaffold(
           appBar: AppBar(
             title: Text(
@@ -176,9 +174,7 @@ class CreateEvent extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.calendar_month,
-                            color: mode == ThemeMode.light
-                                ? Colors.black
-                                : Colors.white,
+                            color: Theme.of(context).textTheme.titleSmall!.color,
                           ),
                           const SizedBox(width: 16),
                           Text("event_date".tr(),
