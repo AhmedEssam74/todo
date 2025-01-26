@@ -28,7 +28,6 @@ class CreateEventsProvider extends ChangeNotifier {
   int selectedCategory = 0;
 
   String get selectedCategoryName => eventsCategory[selectedCategory];
-  // String get selectedHomeCategoryName => eventsCategory[selectedCategory];
 
   void changeCategory(index) {
     selectedCategory = index;
@@ -50,128 +49,27 @@ class CreateEventsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // changeIconColor() {
-  //   bool changeColor = true;
-  //   changeColor =!changeColor;
-  //
-  //   List<Icon> icons =  [
-  //     Icon(
-  //       FontAwesomeIcons.bookOpen,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //     Icon(
-  //       FontAwesomeIcons.bicycle,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //     Icon(
-  //       FontAwesomeIcons.piggyBank,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //     Icon(
-  //       FontAwesomeIcons.database,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //     Icon(
-  //       FontAwesomeIcons.gamepad,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //     Icon(
-  //       FontAwesomeIcons.bowlFood,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //     Icon(
-  //       FontAwesomeIcons.expand,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //     Icon(
-  //       FontAwesomeIcons.upwork,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //     Icon(
-  //       FontAwesomeIcons.cakeCandles,
-  //       color: changeColor ? Colors.white : Colors.red,
-  //     ),
-  //   ];
-  //   notifyListeners();
-  // }
-  List<Icon> icons = const [
-    Icon(
-      FontAwesomeIcons.bookOpen,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.bicycle,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.piggyBank,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.database,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.gamepad,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.bowlFood,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.expand,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.upwork,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.cakeCandles,
-      color: Colors.white,
-    ),
+  List<IconData> icons = const [
+    FontAwesomeIcons.bookOpen,
+    FontAwesomeIcons.bicycle,
+    FontAwesomeIcons.piggyBank,
+    FontAwesomeIcons.database,
+    FontAwesomeIcons.gamepad,
+    FontAwesomeIcons.bowlFood,
+    FontAwesomeIcons.expand,
+    FontAwesomeIcons.upwork,
+    FontAwesomeIcons.cakeCandles,
   ];
-  List<Icon> homeIcons = const [
-    Icon(
-      FontAwesomeIcons.bookOpen,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.bookOpen,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.bicycle,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.piggyBank,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.database,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.gamepad,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.bowlFood,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.expand,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.upwork,
-      color: Colors.white,
-    ),
-    Icon(
-      FontAwesomeIcons.cakeCandles,
-      color: Colors.white,
-    ),
+  List<IconData> homeIcons = const [
+    FontAwesomeIcons.locationArrow,
+    FontAwesomeIcons.bookOpen,
+    FontAwesomeIcons.bicycle,
+    FontAwesomeIcons.piggyBank,
+    FontAwesomeIcons.database,
+    FontAwesomeIcons.gamepad,
+    FontAwesomeIcons.bowlFood,
+    FontAwesomeIcons.expand,
+    FontAwesomeIcons.upwork,
+    FontAwesomeIcons.cakeCandles,
   ];
 }
