@@ -11,7 +11,7 @@ import 'package:todo/screens/Home/tabs/map_tap.dart';
 import 'package:todo/screens/Home/tabs/profile_tap.dart';
 import 'package:todo/screens/Home/update_event.dart';
 import 'package:todo/screens/authentication/forget_password.dart';
-import 'package:todo/screens/authentication/log_in.dart';
+import 'package:todo/screens/authentication/Login/log_in.dart';
 import 'package:todo/screens/authentication/register.dart';
 import 'package:todo/screens/Home/home_screen.dart';
 import 'package:todo/screens/introduction_screen.dart';
