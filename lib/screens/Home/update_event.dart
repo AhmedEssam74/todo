@@ -178,9 +178,8 @@ class UpdateEvent extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.calendar_month,
-                            color: mode == ThemeMode.light
-                                ? Colors.black
-                                : Colors.white,
+                            color:
+                                Theme.of(context).textTheme.titleSmall!.color,
                           ),
                           const SizedBox(width: 16),
                           Text("event_date".tr(),
